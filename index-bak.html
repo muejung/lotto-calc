@@ -2,12 +2,11 @@
 <html lang="th">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>โปรแกรมคำนวณหวย</title>
     <script src="https://cdn.tailwindcss.com"></script>
 </head>
-<body class="bg-gray-100 p-2 sm:p-5">
-    <div class="max-w-4xl mx-auto bg-white p-4 sm:p-8 rounded shadow">
+<body class="bg-gray-100 p-5">
+    <div class="max-w-4xl mx-auto bg-white p-8 rounded shadow">
         <h1 class="text-2xl font-bold mb-4">โปรแกรมคำนวณค่าหวย</h1>
         <textarea id="numbers" class="w-full h-32 p-2 border rounded" placeholder="ใส่เลขที่ซื้อคั่นด้วยคอมม่า (,) หรือช่องว่าง หรือขึ้นบรรทัดใหม่ ก็ได้ เช่น 467,35,53,46"></textarea>
         
@@ -86,9 +85,9 @@
 
         const createList = (arr, price) => arr.map(num => `
             <div class="flex justify-end items-center mb-2 text-sm">
-                <span class="text-gray-800 mr-4">${num}</span>
+                <span class="font-medium text-gray-800 mr-4">${num}</span>
                 <div class="flex items-center">
-                    <input type="number" value="${price}" class="w-16 p-1 border rounded text-right item-price" oninput="updateTotal()">
+                    <input type="number" value="${price}" class="w-20 p-1 border rounded text-right item-price" oninput="updateTotal()">
                     <span class="ml-2 text-gray-600">บาท</span>
                 </div>
             </div>
@@ -103,22 +102,22 @@
             <div class="mb-4 p-4 bg-green-50 border border-green-200 rounded text-center shadow-sm">
                 <p class="font-bold text-2xl text-green-700">ยอดรวมทั้งหมด: <span id="grandTotal">0</span> บาท</p>
             </div>
-            <div class="grid grid-cols-2 lg:grid-cols-4 gap-4 mt-4 w-full">
-                <div class="bg-gray-50 p-4 rounded border h-fit">
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4 mt-4 w-full">
+                <div class="bg-gray-50 p-4 rounded border h-80 overflow-y-auto">
                     <h3 class="font-bold mb-4 pb-2 border-b text-gray-700 text-right">2 ตัวบน (${arr2.length} ชุด)</h3>
-                    ${html2Top || '<p class="text-gray-400 text-sm text-center font-medium">ไม่มีข้อมูล</p>'}
+                    ${html2Top || '<p class="text-gray-400 text-sm text-center">ไม่มีข้อมูล</p>'}
                 </div>
-                <div class="bg-gray-50 p-4 rounded border h-fit">
+                <div class="bg-gray-50 p-4 rounded border h-80 overflow-y-auto">
                     <h3 class="font-bold mb-4 pb-2 border-b text-gray-700 text-right">2 ตัวล่าง (${arr2.length} ชุด)</h3>
-                    ${html2Bottom || '<p class="text-gray-400 text-sm text-center font-medium">ไม่มีข้อมูล</p>'}
+                    ${html2Bottom || '<p class="text-gray-400 text-sm text-center">ไม่มีข้อมูล</p>'}
                 </div>
-                <div class="bg-gray-50 p-4 rounded border h-fit">
+                <div class="bg-gray-50 p-4 rounded border h-80 overflow-y-auto">
                     <h3 class="font-bold mb-4 pb-2 border-b text-gray-700 text-right">3 ตัวบน (${arr3.length} ชุด)</h3>
-                    ${html3Straight || '<p class="text-gray-400 text-sm text-center font-medium">ไม่มีข้อมูล</p>'}
+                    ${html3Straight || '<p class="text-gray-400 text-sm text-center">ไม่มีข้อมูล</p>'}
                 </div>
-                <div class="bg-gray-50 p-4 rounded border h-fit">
+                <div class="bg-gray-50 p-4 rounded border h-80 overflow-y-auto">
                     <h3 class="font-bold mb-4 pb-2 border-b text-gray-700 text-right">3 ตัวโต๊ด (${arr3.length} ชุด)</h3>
-                    ${html3Tod || '<p class="text-gray-400 text-sm text-center font-medium">ไม่มีข้อมูล</p>'}
+                    ${html3Tod || '<p class="text-gray-400 text-sm text-center">ไม่มีข้อมูล</p>'}
                 </div>
             </div>
         `;
